@@ -1,5 +1,5 @@
 {
-    "name": "sourceboat/wp-laravel-mix",
+    "name": "sidouglas/wp-laravel-mix",
     "description": "Get versioned Laravel Mix file paths in WordPress.",
     "type": "wordpress-muplugin",
     "license": "MIT",
