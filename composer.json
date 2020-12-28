@@ -1,11 +1,11 @@
 {
     "name": "sidouglas/wp-laravel-mix",
-    "description": "Get versioned Laravel Mix file paths in WordPress.",
+    "description": "Forked version of Laravel Mix file paths in WordPress. Original author sourceboat",
     "type": "wordpress-muplugin",
     "license": "MIT",
     "authors": [
         {
-            "name": "Sourceboat",
+            "name": "Forked from sourceboat",
             "email": "info@sourceboat.com"
         }
     ],

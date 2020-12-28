@@ -33,12 +33,13 @@ if (! function_exists('mix')) {
      * Get the path to a versioned Mix file.
      *
      * @param  string  $path
-     * @param  string  $manifestDirectory
+     * @param  string?  $manifestDirectory
+     * @param  string? $host
      * @return \Illuminate\Support\HtmlString
      *
      * @throws \Exception
      */
-    function mix($path, $manifestDirectory = '')
+    function mix($path, $manifestDirectory = '', $host = 'http://localhost')
     {
         static $manifest;
 
@@ -49,11 +50,10 @@ if (! function_exists('mix')) {
         if ($manifestDirectory && ! starts_with($manifestDirectory, '/')) {
             $manifestDirectory = "/{$manifestDirectory}";
         }
-
         $rootDir = dirname(dirname(ABSPATH));
 
         if (file_exists($rootDir . '/' . $manifestDirectory.'/hot')) {
-            return "http://localhost:8080" . $path;
+            return $host . $path;
         }
 
         if (! $manifest) {
@@ -74,8 +74,9 @@ if (! function_exists('mix')) {
         }
 
         $path = $manifestDirectory . $manifest[$path];
-        $path = str_replace('/web', '', $path);
         $path = str_replace('//', '/', $path);
+        $path =  preg_replace('/^\/.*?(<?\/)/', '$2$1', $path);
+
         return WP_HOME . $path;
     }
 }

@@ -7,7 +7,3 @@
 ## Installation
 
 To use this plugin you need to setup your WordPress installation via a Composer setup like [Bedrock](https://github.com/roots/bedrock). Then you can install it via:
-
-```
-$ composer require sourceboat/wp-laravel-mix
-```
